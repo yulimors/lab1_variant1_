@@ -4,7 +4,7 @@ PointGenerator::PointGenerator(const Point& start, const std::vector<Point>& bas
     : current(start), basePoints(bases), gen(std::random_device{}())
 {
     if (basePoints.empty())
-        throw std::invalid_argument("Список базових точок не може бути порожнім");
+        throw std::invalid_argument("The base point list cannot be empty.");
 
     dist = std::uniform_int_distribution<>(0, (int)basePoints.size() - 1);
 }
@@ -18,3 +18,4 @@ Point PointGenerator::operator()() {
 
     return current;
 }
+
