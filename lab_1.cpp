@@ -2,12 +2,9 @@
 #include <fstream>
 #include <vector>
 #include <stdexcept>
-#include <windows.h>
 #include "PointGenerator.h"
 
 int main() {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
     try {
         std::ifstream fin("input.txt");
         if (!fin) {
@@ -58,3 +55,4 @@ int main() {
     return 0;
 
 }
+
