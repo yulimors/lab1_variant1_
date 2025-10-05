@@ -11,13 +11,13 @@ int main() {
     try {
         std::ifstream fin("input.txt");
         if (!fin) {
-            throw std::runtime_error("Не вдалося відкрити файл");
+            throw std::runtime_error("Could not open file input.txt");
         }
 
         int N;
         fin >> N;
         if (N <= 0) {
-            throw std::invalid_argument("N має бути натуральним числом");
+            throw std::invalid_argument("N must be a natural number");
         }
 
         double x0, y0;
@@ -32,14 +32,14 @@ int main() {
         fin.close();
 
         if (bases.empty()) {
-            throw std::invalid_argument("Немає базових точок у файлі");
+            throw std::invalid_argument("There are no base points in the file");
         }
 
         PointGenerator gen(start, bases);
 
         std::ofstream fout("output.txt");
         if (!fout) {
-            throw std::runtime_error("Не вдалося відкрити файл output.txt");
+            throw std::runtime_error("Could not open file output.txt");
         }
 
         for (int i = 0; i < N; i++) {
@@ -48,12 +48,13 @@ int main() {
         }
 
         fout.close();
-        std::cout << "Результат у файлі output.txt\n";
+        std::cout << "The result is in the output.txt\n";
     }
     catch (const std::exception& e) {
-        std::cerr << "Помилка: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
 
     return 0;
+
 }
